@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.summary      = "QGGImagePicker like WeChat."
 
   s.description  = <<-DESC
-                   A longer description of QGGImagePicker in Markdown format.
+                   A Image Picker like WeChat ImagePicker.
 
                    * Think: Why did you write this? What is the focus? What does it do?
                    * CocoaPods will be using this to generate tags, and improve search results.
