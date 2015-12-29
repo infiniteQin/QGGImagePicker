@@ -15,8 +15,8 @@ typedef void (^QGGImagePickOverMaxSelectNumBlock)(UIViewController *currVC,NSInt
 
 @interface QGGImagePicker : NSObject
 
-@property (nonatomic, assign) NSInteger maxSelectNum;
-@property (nonatomic, assign) NSInteger minSelectNum;
+@property (nonatomic, assign) NSUInteger maxSelectNum;//默认为5
+@property (nonatomic, assign) NSUInteger minSelectNum;//默认为1
 
 /**
  *

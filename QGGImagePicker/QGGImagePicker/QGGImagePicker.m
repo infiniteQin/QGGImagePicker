@@ -33,7 +33,7 @@
 + (instancetype)imagePickerWithRootView:(UIViewController *)rootViewController {
     QGGImagePicker *picker = [[QGGImagePicker alloc] init];
     picker.rootViewController = rootViewController;
-    picker.maxSelectNum = 3;
+    picker.maxSelectNum = 5;
     picker.minSelectNum = 1;
     return picker;
 }
