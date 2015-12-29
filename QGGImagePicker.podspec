@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
   s.name         = "QGGImagePicker"
   s.version      = "1.0.1"
   s.summary      = "QGGImagePicker like WeChat."
-
   s.description  = <<-DESC
                    A Image Picker like WeChat ImagePicker.
 
