@@ -1,0 +1,16 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'QGGImagePicker_Example', :exclusive => true do
+  pod "QGGImagePicker", :path => "../"
+  pod 'Masonry', '~> 0.6.3'
+end
+
+target 'QGGImagePicker_Tests', :exclusive => true do
+  pod "QGGImagePicker", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+  pod 'FBSnapshotTestCase'
+  pod 'Expecta+Snapshots'
+end

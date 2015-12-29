@@ -1,0 +1,6 @@
+framework module QGGImagePicker {
+  umbrella header "QGGImagePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
