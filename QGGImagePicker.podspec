@@ -20,11 +20,11 @@ Pod::Spec.new do |s|
                         A ImagePicker Like WeChat's ImagePicker
                        DESC
 
-  s.homepage         = "https://github.com/infiniteQin/qggPodsSpecs"
+  s.homepage         = "https://github.com/infiniteQin/QGGImagePicker.git"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "taizi" => "changqin@ixiaopu.com" }
-  s.source           = { :git => "https://github.com/infiniteQin/qggPodsSpecs.git", :tag => "0.0.1" }
+  s.author           = { "changqin" => "changqin@ixiaopu.com" }
+  s.source           = { :git => "https://github.com/infiniteQin/QGGImagePicker.git", :tag => "0.0.1" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
