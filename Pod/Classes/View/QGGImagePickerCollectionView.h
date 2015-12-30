@@ -21,4 +21,6 @@
 @property (nonatomic, weak) ALAssetsGroup *assetsGroup; //weak
 @property (nonatomic, assign) NSInteger   maxSelectNum; //选中最大数 默认5
 @property (nonatomic, assign) NSInteger   minSelectNum; //选中最小数 默认1
+@property (nonatomic, strong) NSMutableArray<ALAsset*> *assets;
+@property (nonatomic, strong) NSMutableArray<ALAsset*> *selectedAssets;
 @end

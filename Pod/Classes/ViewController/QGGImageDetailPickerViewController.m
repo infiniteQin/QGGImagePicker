@@ -29,14 +29,23 @@ static NSString *kQGGImagePickerDetailCellIdentify = @"QGGImagePickerDetailCell"
     self.view.backgroundColor = [UIColor blackColor];
 
     //navigationBar
+    UIButton *backBtn = [[UIButton alloc] init];
+    [backBtn setImage:[UIImage imageNamed:@"btn_back"] forState:UIControlStateNormal];
+    [backBtn sizeToFit];
+    [backBtn addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchDown];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    
     self.selectBtn = [[UIButton alloc] init];
     [self.selectBtn setImage:[UIImage imageNamed:@"btn_check"] forState:UIControlStateSelected];
     [self.selectBtn setImage:[UIImage imageNamed:@"btn_uncheck_b"] forState:UIControlStateNormal];
     [self.selectBtn sizeToFit];
     [self.selectBtn addTarget:self action:@selector(selectAsset) forControlEvents:UIControlEventTouchDown];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.selectBtn];
+    
+    
     ALAsset *asset = self.assets[self.currIndex];
     self.selectBtn.selected = ([self.selectedAssets containsObject:asset]);
+    
     //collectionView
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -53,14 +62,27 @@ static NSString *kQGGImagePickerDetailCellIdentify = @"QGGImagePickerDetailCell"
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     //设置导航与状态栏视图
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithRenderColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] renderSize:CGSizeMake(1., 1)] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage imageWithRenderColor:[UIColor clearColor] renderSize:CGSizeMake(1., 0.5)]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
+
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithRenderColor:[UIColor whiteColor] renderSize:CGSizeMake(1., 1)] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
+
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)popViewController {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) setUpFooterView {

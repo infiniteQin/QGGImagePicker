@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIButton                     *okBtn;//完成
 @property (nonatomic, strong) UILabel                      *numLabel;//选中数量
 @property (nonatomic, strong) NSMutableArray<ALAsset*>     *selectAssets;
+@property (nonatomic, strong) NSMutableArray<ALAsset*>     *assets;
 @end
 
 @implementation QGGImagePickerViewController
@@ -36,12 +37,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+    UIButton *backBtn = [[UIButton alloc] init];
+    [backBtn setImage:[UIImage imageNamed:@"btn_back_b"] forState:UIControlStateNormal];
+    [backBtn sizeToFit];
+    [backBtn addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchDown];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    
+    UIButton *cancelBtn = [[UIButton alloc] init];
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    cancelBtn.titleLabel.font = [UIFont systemFontOfSize:16.];
+    [cancelBtn sizeToFit];
+    [cancelBtn addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchDown];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelBtn];
+ 
     self.view.backgroundColor = [UIColor whiteColor];
     self.imagePickerCollectionView = [[QGGImagePickerCollectionView alloc] init];
     self.imagePickerCollectionView.maxSelectNum = self.maxSelectNum;
     self.imagePickerCollectionView.minSelectNum = self.minSelectNum;
     self.imagePickerCollectionView.imagePickerCollectionViewDelegate = self;
+    self.imagePickerCollectionView.selectedAssets = self.selectAssets;
+    self.imagePickerCollectionView.assets = self.assets;
     [self.view addSubview:self.imagePickerCollectionView];
     [self setUpAssetsGroup:self.assetsGroup];
     __weak typeof(self) wSelf = self;
@@ -116,8 +132,13 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [self.imagePickerCollectionView reloadData];
     [self updateFooterView];
+}
+
+- (void)popViewController {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)cancel {
@@ -205,9 +226,7 @@
     }
 }
 
-- (void)didSelectAssetsChange:(NSArray<ALAsset *> *)assets {
-    [self.selectAssets removeAllObjects];
-    self.selectAssets = [NSMutableArray arrayWithArray:assets];
+- (void)didSelectAssetsChange:(NSArray<ALAsset*> *)assets {
     [self updateFooterView];
 }
 
@@ -260,6 +279,13 @@
         _selectAssets = [NSMutableArray array];
     }
     return _selectAssets;
+}
+
+- (NSMutableArray*)assets {
+    if (!_assets) {
+        _assets = [NSMutableArray array];
+    }
+    return _assets;
 }
 
 @end

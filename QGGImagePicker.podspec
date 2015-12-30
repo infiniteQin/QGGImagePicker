@@ -24,16 +24,17 @@ Pod::Spec.new do |s|
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "changqin" => "changqin@ixiaopu.com" }
-  s.source           = { :git => "https://github.com/infiniteQin/QGGImagePicker.git", :tag => "0.0.1" }
+  s.source           = { :git => "https://github.com/infiniteQin/QGGImagePicker.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*','Pod/Classes/**/**/*'
-  s.resource_bundles = {
-    'QGGImagePicker' => ['Pod/Assets/*.png']
-  }
+  #s.resource_bundles = {
+  #  'QGGImagePicker' => ['Pod/Assets/*.png']
+  #}
+  #s.resources = "Pod/*.xcassets"
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = "UIKit", "AssetsLibrary"

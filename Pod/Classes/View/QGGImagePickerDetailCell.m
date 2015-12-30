@@ -71,11 +71,8 @@
 -(void)setAsset:(ALAsset *)asset {
     _scrollView.zoomScale = 1.;
     _asset = asset;
-    if ([asset isKindOfClass:[UIImage class]]) {
-        _imageView.image = (UIImage *)asset;
-    }else {
-        _imageView.image = [UIImage imageWithCGImage:asset.aspectRatioThumbnail];
-    }
+    UIImage *image = [UIImage imageWithCGImage:[_asset.defaultRepresentation CGImageWithOptions:nil]];
+    [_imageView setImage:image];
 }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {

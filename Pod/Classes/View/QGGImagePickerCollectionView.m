@@ -13,8 +13,7 @@
 static NSString *kQGGImagePickerCellIdentify = @"QGGImagePickerCell";
 
 @interface QGGImagePickerCollectionView ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,QGGImagePickerCellDelegate>
-@property (nonatomic, strong) NSMutableArray<ALAsset*> *assets;
-@property (nonatomic, strong) NSMutableArray<ALAsset*> *selectedAssets;
+
 @end
 
 @implementation QGGImagePickerCollectionView
@@ -69,6 +68,9 @@ static NSString *kQGGImagePickerCellIdentify = @"QGGImagePickerCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     QGGImagePickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kQGGImagePickerCellIdentify forIndexPath:indexPath];
     cell.delegate = self;
+    ALAsset *asset = self.assets[indexPath.row];
+    cell.asset = asset;
+    cell.isSelected = ([self.selectedAssets containsObject:asset]);
     return cell;
 }
 
@@ -95,14 +97,6 @@ static NSString *kQGGImagePickerCellIdentify = @"QGGImagePickerCell";
     if (self.imagePickerCollectionViewDelegate &&  [self.imagePickerCollectionViewDelegate respondsToSelector:@selector(didSelectItemAtIndex:assets:selectAssets:)]) {
         [self.imagePickerCollectionViewDelegate didSelectItemAtIndex:indexPath.row assets:self.assets selectAssets:self.selectedAssets];
     }
-}
-
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    QGGImagePickerCell *imgPickerCell = (QGGImagePickerCell *)cell;
-    ALAsset *asset = self.assets[indexPath.row];
-    imgPickerCell.asset = asset;
-    imgPickerCell.isSelected = ([self.selectedAssets containsObject:asset]);
-    
 }
 
 
@@ -152,18 +146,5 @@ static NSString *kQGGImagePickerCellIdentify = @"QGGImagePickerCell";
     cell.isSelected = NO;
 }
 
-- (NSMutableArray *)assets {
-    if (!_assets) {
-        _assets = [NSMutableArray array];
-    }
-    return _assets;
-}
-
-- (NSMutableArray *)selectedAssets {
-    if (!_selectedAssets) {
-        _selectedAssets = [NSMutableArray array];
-    }
-    return _selectedAssets;
-}
 
 @end
