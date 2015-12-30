@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-typedef void (^QGGImageDidFinishPickBlock)(NSArray<ALAsset*>* assets);
+typedef void (^QGGImageDidFinishPickBlock)(NSArray<UIImage*>* images);
 typedef void (^QGGImageCancelPickBlock)();
 typedef void (^QGGImagePickOverMaxSelectNumBlock)(UIViewController *currVC,NSInteger maxSelectNum);
 

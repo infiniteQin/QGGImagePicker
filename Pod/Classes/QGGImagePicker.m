@@ -64,11 +64,26 @@
 
 - (void)viewController:(UIViewController *)vc didFinishSelect:(NSArray<ALAsset *> *)assets {
     __weak typeof(self) wSelf = self;
-    [vc dismissViewControllerAnimated:YES completion:^{
-        if (wSelf.didFinishPickBlock) {
-            wSelf.didFinishPickBlock(assets);
+
+    if ([assets count] > 0) {
+        NSMutableArray *images = [NSMutableArray arrayWithCapacity:[assets count]];
+        for (ALAsset *asset in assets) {
+            UIImage *image = [UIImage imageWithCGImage:[asset.defaultRepresentation CGImageWithOptions:nil]];
+            [images addObject:image];
         }
-    }];
+        [vc dismissViewControllerAnimated:YES completion:^{
+            if (wSelf.didFinishPickBlock) {
+                wSelf.didFinishPickBlock(images);
+            }
+        }];
+    }else {
+        [vc dismissViewControllerAnimated:YES completion:^{
+            if (wSelf.didFinishPickBlock) {
+                wSelf.didFinishPickBlock(nil);
+            }
+        }];
+    }
+    
 }
 
 - (void)cancelPick:(UIViewController *)vc {
