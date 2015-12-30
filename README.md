@@ -5,6 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/QGGImagePicker.svg?style=flat)](http://cocoapods.org/pods/QGGImagePicker)
 [![Platform](https://img.shields.io/cocoapods/p/QGGImagePicker.svg?style=flat)](http://cocoapods.org/pods/QGGImagePicker)
 
+##description
+类是微信图片选择器的库
+
+![image](https://raw.githubusercontent.com/infiniteQin/assets/master/QGGImagePicker/img1.png)
+
+![image](https://raw.githubusercontent.com/infiniteQin/assets/master/QGGImagePicker/img2.png)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
