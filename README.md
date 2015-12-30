@@ -9,8 +9,24 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+import "QGGImagePicker.h"
 
+```
+QGGImagePicker *imagePicker = [QGGImagePicker imagePickerWithRootView:self didFinishPick:^(NSArray<UIImage *> *images) {
+		//选择图片完成
+        for (UIImage *image in images) {
+            [wSelf didPickImage:image];
+        }
+    } cancelPickBlock:^{
+        NSLog(@"取消选择");
+    } overMaxSelectNumBlock:^(UIViewController *currVC, NSInteger maxSelectNum) {
+        NSLog(@"超出最大选择数");
+    }];
+[imagePicker showDefaultImageLab];
+```
+
+## Requirements
+Need Masonry
 ## Installation
 
 QGGImagePicker is available through [CocoaPods](http://cocoapods.org). To install
@@ -27,3 +43,5 @@ taizi, changqin@ixiaopu.com
 ## License
 
 QGGImagePicker is available under the MIT license. See the LICENSE file for more info.
+
+
