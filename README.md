@@ -8,9 +8,7 @@
 ##description
 类是微信图片选择器的库
 
-![image](https://raw.githubusercontent.com/infiniteQin/assets/master/QGGImagePicker/img1.png)
-
-![image](https://raw.githubusercontent.com/infiniteQin/assets/master/QGGImagePicker/img2.png)
+![image](https://raw.githubusercontent.com/infiniteQin/assets/master/QGGImagePicker/img.gif )
 
 ## Usage
 
