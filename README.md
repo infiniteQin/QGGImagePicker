@@ -1,9 +1,7 @@
 # QGGImagePicker
 
-[![CI Status](http://img.shields.io/travis/taizi/QGGImagePicker.svg?style=flat)](https://travis-ci.org/taizi/QGGImagePicker)
-[![Version](https://img.shields.io/cocoapods/v/QGGImagePicker.svg?style=flat)](http://cocoapods.org/pods/QGGImagePicker)
-[![License](https://img.shields.io/cocoapods/l/QGGImagePicker.svg?style=flat)](http://cocoapods.org/pods/QGGImagePicker)
-[![Platform](https://img.shields.io/cocoapods/p/QGGImagePicker.svg?style=flat)](http://cocoapods.org/pods/QGGImagePicker)
+[![CocoaPods](http://img.shields.io/cocoapods/p/LeanChatLib.svg?style=flat)](http://cocoapods.org/?q=LeanChatLib)&nbsp;
+[![Support](https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 
 ##description
 类是微信图片选择器的库
@@ -13,6 +11,14 @@
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+###Add Resource
+
+btn\_back\_b
+btn\_back
+btn\_check
+btn\_uncheck\_b
+cell\_arrow
 
 import "QGGImagePicker.h"
 
