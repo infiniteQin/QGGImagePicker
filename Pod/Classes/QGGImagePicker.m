@@ -68,7 +68,7 @@
     if ([assets count] > 0) {
         NSMutableArray *images = [NSMutableArray arrayWithCapacity:[assets count]];
         for (ALAsset *asset in assets) {
-            UIImage *image = [UIImage imageWithCGImage:[asset.defaultRepresentation CGImageWithOptions:nil]];
+            UIImage *image = [UIImage imageWithCGImage:[asset.defaultRepresentation fullScreenImage]];
             [images addObject:image];
         }
         [vc dismissViewControllerAnimated:YES completion:^{

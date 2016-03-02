@@ -71,7 +71,7 @@
 -(void)setAsset:(ALAsset *)asset {
     _scrollView.zoomScale = 1.;
     _asset = asset;
-    UIImage *image = [UIImage imageWithCGImage:[_asset.defaultRepresentation CGImageWithOptions:nil]];
+    UIImage *image = [UIImage imageWithCGImage:[asset.defaultRepresentation fullScreenImage]];
     [_imageView setImage:image];
 }
 
