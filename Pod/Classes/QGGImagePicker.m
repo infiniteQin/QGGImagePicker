@@ -22,7 +22,10 @@
 
 @implementation QGGImagePicker
 
-+ (instancetype)imagePickerWithRootView:(UIViewController *)rootViewController didFinishPick:(QGGImageDidFinishPickBlock)didPickBlock cancelPickBlock:(QGGImageCancelPickBlock)cancelPickBlock overMaxSelectNumBlock:(QGGImagePickOverMaxSelectNumBlock)overMaxSelectNumBlock {
++ (instancetype)imagePickerWithRootView:(UIViewController *)rootViewController
+                          didFinishPick:(QGGImageDidFinishPickBlock)didPickBlock
+                        cancelPickBlock:(QGGImageCancelPickBlock)cancelPickBlock
+                  overMaxSelectNumBlock:(QGGImagePickOverMaxSelectNumBlock)overMaxSelectNumBlock {
     QGGImagePicker *picker = [self imagePickerWithRootView:rootViewController];
     picker.didFinishPickBlock = didPickBlock;
     picker.cancelPickBlock = cancelPickBlock;
@@ -64,7 +67,6 @@
 
 - (void)viewController:(UIViewController *)vc didFinishSelect:(NSArray<ALAsset *> *)assets {
     __weak typeof(self) wSelf = self;
-
     if ([assets count] > 0) {
         NSMutableArray *images = [NSMutableArray arrayWithCapacity:[assets count]];
         for (ALAsset *asset in assets) {
@@ -83,7 +85,6 @@
             }
         }];
     }
-    
 }
 
 - (void)cancelPick:(UIViewController *)vc {

@@ -1,10 +1,9 @@
 # QGGImagePicker
 
-[![CocoaPods](http://img.shields.io/cocoapods/p/LeanChatLib.svg?style=flat)](http://cocoapods.org/?q=LeanChatLib)&nbsp;
-[![Support](https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
+[![CocoaPods](http://img.shields.io/cocoapods/p/QGGImagePicker.svg?style=flat)](http://cocoapods.org/?q=QGGImagePicker)&nbsp; [![CocoaPods](http://img.shields.io/cocoapods/v/QGGImagePicker.svg?style=flat)](http://cocoapods.org/?q=QGGImagePicker)&nbsp; [![CocoaPods](http://img.shields.io/cocoapods/l/QGGImagePicker.svg?style=flat)](http://cocoapods.org/?q=QGGImagePicker)&nbsp; [![Support](https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 
 ##description
-类是微信图片选择器的库
+### 类似微信图片选择器的库
 
 ![image](https://raw.githubusercontent.com/infiniteQin/assets/master/QGGImagePicker/img.gif )
 
@@ -25,14 +24,14 @@ import "QGGImagePicker.h"
 ```
 QGGImagePicker *imagePicker = [QGGImagePicker imagePickerWithRootView:self didFinishPick:^(NSArray<UIImage *> *images) {
 		//选择图片完成
-        for (UIImage *image in images) {
-            [wSelf didPickImage:image];
-        }
+        NSLog(@"选择图片完成");
     } cancelPickBlock:^{
         NSLog(@"取消选择");
     } overMaxSelectNumBlock:^(UIViewController *currVC, NSInteger maxSelectNum) {
         NSLog(@"超出最大选择数");
     }];
+imagePicker.maxSelectNum = 3; //默认1
+imagePicker.maxSelectNum = 10;//默认5
 [imagePicker showDefaultImageLab];
 ```
 

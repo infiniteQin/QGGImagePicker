@@ -27,7 +27,10 @@ typedef void (^QGGImagePickOverMaxSelectNumBlock)(UIViewController *currVC,NSInt
  *
  *  @return
  */
-+ (instancetype)imagePickerWithRootView:(UIViewController *)rootViewController didFinishPick:(QGGImageDidFinishPickBlock)didPickBlock cancelPickBlock:(QGGImageCancelPickBlock)cancelPickBlock overMaxSelectNumBlock:(QGGImagePickOverMaxSelectNumBlock)overMaxSelectNumBlock;
++ (instancetype)imagePickerWithRootView:(UIViewController *)rootViewController
+                          didFinishPick:(QGGImageDidFinishPickBlock)didPickBlock
+                        cancelPickBlock:(QGGImageCancelPickBlock)cancelPickBlock
+                  overMaxSelectNumBlock:(QGGImagePickOverMaxSelectNumBlock)overMaxSelectNumBlock;
 
 /**
  *  跳转
