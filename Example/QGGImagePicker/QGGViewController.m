@@ -7,7 +7,7 @@
 //
 
 #import "QGGViewController.h"
-#import "QGGImagePicker.h"
+#import <QGGImagePicker/QGGImagePicker.h>
 
 @interface QGGViewController ()
 

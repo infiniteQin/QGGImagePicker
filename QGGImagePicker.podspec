@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "QGGImagePicker"
-  s.version          = "0.0.2"
+  s.version          = "0.0.3"
   s.summary          = "QGGImagePicker."
 
 # This description is used to generate tags and improve search results.
@@ -38,5 +38,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = "UIKit", "AssetsLibrary"
-  s.dependency 'Masonry', '~> 0.6.3'
+  s.dependency 'Masonry'
 end
